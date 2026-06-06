@@ -89,6 +89,8 @@ function show_popup(element_id) {
                     break;
                 }
             }
+        } else if (element_id == "intro_cloud") {
+            document.getElementsByClassName("overlay")[0].innerText = "Intro";
         }
     }, 1000);
 }
