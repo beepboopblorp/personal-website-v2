@@ -1,0 +1,399 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(assets/light_pond_bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
+
+button {
+    cursor: pointer;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+button:hover {
+    scale: 1.2;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    font-family: "Papernotes Sketch";
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin: 0;
+}
+
+p {
+    font-family: "Papernotes Bold";
+    font-size: 1.5rem;
+    line-height: 125%;
+}
+
+
+
+.popup {
+    align-content: center;
+    text-align: center;
+    display: none;
+    position: fixed;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    z-index: 4;
+}
+
+.popup_img {
+    height: 50%;
+    width: auto;
+    translate: 5%;
+}
+
+.popup_link {
+    display: inline-block;
+    border-radius: 5%;
+    border: 0.25rem rgb(212, 169, 88) solid;
+    color: rgb(212, 169, 88);
+    font-family: Papernotes Sketch;
+    padding: 1%;
+    margin: 1%;
+    font-size: 1.25rem;
+}
+
+.frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+}
+
+.inner {
+    background-color: beige;
+    width: 82.5%;
+    height: 75%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.inner-inner {
+    width: 75%;
+    height: 57.5%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 7;
+    overflow: auto;
+    padding-right: 1%;
+}
+
+.clickable {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    width: 100%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-family: "Papernotes Sketch";
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+#close_popup_btn {
+    position: absolute;
+    height: 5%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    top: 20%;
+    left: 83.25%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0.25rem rgb(212, 169, 88) solid;
+    color: rgb(212, 169, 88);
+    background-color: beige;
+    display: none;
+}
+
+#close_popup_btn:hover {
+    transform: translate(-50%, -50%) scale(1.2) rotate(25deg);
+}
+
+#theme_change {
+    animation: theme_img 5s infinite;
+}
+
+#intro_cloud {
+    animation: cloud_1 5s infinite;
+}
+
+#help_cloud {
+    animation: cloud_2 5s infinite 0.5s;
+}
+
+#hints_cloud {
+    animation: cloud_1 5s infinite 0.5s;
+}
+
+#counter_cloud {
+    animation: cloud_2 5s infinite;
+}
+
+#banana_duck {
+    animation: ghostie 3s infinite;
+}
+
+#magnifying_glass {
+    animation: ghostie 3s infinite, mag_glass 3s infinite;
+}
+
+#flask {
+    animation: ghostie 3s infinite, flask 3s infinite;
+}
+
+#paint {
+    animation: ghostie 4s infinite, paint 4s infinite;
+}
+
+#ghostie {
+    animation: ghostie 4s infinite;
+}
+
+#duck {
+    animation: duckie 3.5s infinite;
+}
+
+#rov {
+    animation: rov 4.5s infinite;
+    transform-origin: 52.5% 7.5%;
+}
+
+#pretzel {
+    animation: pretzel 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+#present {
+    animation: present 5s infinite;
+}
+
+#shark_stuff {
+    animation: sharkie_stuff 6s ease infinite;
+    transform-origin: 37.5% 73.5%;
+    margin: 0;
+    padding: 0;
+}
+
+#rocket {
+    animation: ghostie 2.5s infinite;
+}
+
+
+
+@font-face {
+    font-family: "Papernotes";
+    src: url("Papernotes/Papernotes.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Papernotes Sketch";
+    src: url("Papernotes/Papernotes\ Sketch.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Papernotes Bold";
+    src: url("Papernotes/Papernotes\ Bold.ttf") format("truetype");
+}
+
+
+
+@keyframes show_popup {
+    from {
+        transform: translate(-50%, -50%) scale(0)
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+@keyframes theme_img {
+    0% {
+        rotate: 22.5deg;
+    }
+    50% {
+        rotate: -45deg;
+    }
+    100% {
+        rotate: 22.5deg;
+    }
+}
+
+@keyframes cloud_1 {
+    0% {
+        translate: 5%;
+    }
+    50% {
+        translate: -10%;
+    }
+    100% {
+        translate: 5%;
+    }
+}
+
+
+@keyframes cloud_2 {
+    0% {
+        translate: -5%;
+    }
+    50% {
+        translate: 10%;
+    }
+    100% {
+        translate: -5%;
+    }
+}
+
+@keyframes mag_glass {
+    0% {
+        rotate: 150deg;
+    }
+    50% {
+        rotate: 140deg;
+    }
+    100% {
+        rotate: 150deg;
+    }
+}
+
+@keyframes flask {
+    0% {
+        rotate: 70deg;
+    }
+    50% {
+        rotate: 85deg;
+    }
+    100% {
+        rotate: 70deg;
+    }
+}
+
+@keyframes paint {
+    0% {
+        rotate: 5deg;
+    }
+    50% {
+        rotate: -10deg;
+    }
+    100% {
+        rotate: 5deg;
+    }
+}
+
+@keyframes ghostie {
+    0% {
+        translate: 0 -2.5%;
+    }
+    50% {
+        translate: 0 5%;
+    }
+    100% {
+        translate: 0 -2.5%;
+    }
+}
+
+@keyframes duckie {
+    0% {
+        translate: -5%;
+    }
+    50% {
+        translate: 10%;
+    }
+    100% {
+        translate: -5%;
+    }
+}
+
+@keyframes rov {
+    0% {
+        rotate: 2.5deg;
+    }
+    50% {
+        rotate: -5deg;
+    }
+    100% {
+        rotate: 2.5deg;
+    }
+}
+
+@keyframes pretzel {
+    0% {
+        rotate: 30deg;
+    }
+    50% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 30deg;
+    }
+}
+
+@keyframes present {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(15deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-15deg);}
+    100% {transform: rotate(0deg);}
+}
+
+@keyframes sharkie_stuff {
+    0% {transform: rotate(-15deg);}
+    25% {transform: rotate(0deg);}
+    50% {transform: rotate(-15deg);}
+    75% {transform: rotate(-30deg);}
+    100% {transform: rotate(-15deg);}
+}
