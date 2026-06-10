@@ -1,297 +1,433 @@
 <!DOCTYPE html>
 <html>
-  <head> 
-    <meta charset="utf-8">
-    <title>Eesha Kothari</title>
-    <link rel="icon" type="image/x-icon" href="black_rose_contrast.jpg">
-    <link rel="stylesheet" href="style.css"/>
-  </head>
-
-  <body id="body_id" style="background-image: url(assets/light_pond_bg.png);">
-
-    <!-- clickable images (make them as buttons with an image inside with the css changed) -->
-    <button class="clickable" id="theme_change" style="height: 20%; width: auto; aspect-ratio: 1/1; top: 4%; left: 2.5%;"><img id="theme_change_img" src="assets/sun.png"></button>
-
-    <button class="clickable" id="intro_cloud" style="height: 15%; width: auto; aspect-ratio: 246/124; left: 18.5%; top: 10%;"><img id="intro_cloud_img" src="assets/intro_cloud.png"><p class="overlay">CLICK ME!</p></button>
-    <button class="clickable" id="help_cloud" style="height: 15%; width: auto; aspect-ratio: 213/123; right: 47.5%; top: 2.5%;"><img id="help_cloud_img" src="assets/help_cloud.png"><p class="overlay">Help</p></button>
-    <button class="clickable" id="hints_cloud" style="height: 15%; width: auto; aspect-ratio: 239/114; right: 25%; top: 15%;"><img id="hints_cloud_img" src="assets/hints_cloud.png"><p class="overlay">Hints</p></button>
-
-    <button class="clickable" id="paw" style="height: 6%; width: auto; aspect-ratio: 226/216; top: 52%; left: 12.25%; z-index: 1;"><img id="paw_img" src="assets/paw.png"></button>
-    <button class="clickable" id="duck" style="height: 15%; width: auto; aspect-ratio: 1733/1589; top: 57.5%; left: 31.5%; z-index: 2;"><img id="duck_img" src="assets/duck.png"></button>
-    <button class="clickable" id="magnifying_glass" style="height: 8%; width: auto; aspect-ratio: 1646/1859; top: 42%; left: 11.25%; rotate: 150deg; z-index: 1;"><img id="magnifying_glass_img" src="assets/magnifying_glass.png"></button>
-    <button class="clickable" id="orpheus_heidi" style="height: 22.5%; width: auto; aspect-ratio: 5517/2686; top: 35.5%; left: 60%; z-index: 2;"><img id="orpheus_heidi_img" src="assets/orpheus_heidi.png"></button>
-    <button class="clickable" id="rocket" style="height: 30%; width: 8%; top: 24%; left: 77%; z-index: 1;"><img id="rocket_img" src="assets/rocket.png"></button>
-    <button class="clickable" id="rov" style="height: 25%; width: auto; aspect-ratio: 364/617; top: 66%; left: 23%;"><img id="rov_img" src="assets/rov.png"></button>
-    <button class="clickable" id="wrench" style="height: 2%; width: auto; aspect-ratio: 341/74; top: 56%; left: 74%; z-index: 3;"><img id="wrench_img" src="assets/wrench.png"></button>
-    <button class="clickable" id="computer" style="height: 12.5%; width: auto; aspect-ratio: 430/350; top: 56%; left: 26.5%; z-index: 1;"><img id="computer_img" src="assets/computer.png"></button>
-    <button class="clickable" id="paint" style="height: 9%; width: 8%; aspect-ratio: 619/309; top: 37.5%; left: 34.5%; z-index: 3;"><img id="paint_img" src="assets/paint.png"></button>
-    <button class="clickable" id="pretzel" style="height: 5%; width: auto; aspect-ratio: 800/667; top: 38.75%; left: 59.3%; z-index: 3;"><img id="pretzel_img" src="assets/pretzel.png"></button>
-    <button class="clickable" id="easel" style="height: 27.5%; width: auto; aspect-ratio: 195/299; top: 27.5%; left: 40%; z-index: 1;"><img id="easel_img" src="assets/light_easel.png"></button>
-    <button class="clickable" id="banana_duck" style="height: 25%; width: auto; aspect-ratio: 666/931; top: 35%; left: 3.5%; rotate: 10deg; z-index: 2;"><img id="banana_duck_img" src="assets/banana_duck.png"></button>
-    <button class="clickable" id="flask" style="height: 7.5%; width: auto; aspect-ratio: 773/902; top: 51.5%; left: 1%; rotate: 70deg; z-index: 1;"><img id="flask_img" src="assets/flask.png"></button>
-    <button class="clickable" id="ghostie" style="height: 25%; width: auto; aspect-ratio: 473/990; top: 29%; left: 36%; z-index: 2;"><img id="ghostie_img" src="assets/ghostie.png"></button>
-    <button class="clickable" id="present" style="height: 7.5%; width: auto; aspect-ratio: 6747/5099; top: 43%; left: 67.75%; z-index: 3;"><img id="present_img" src="assets/present.png"></button>
-    <div id="shark_stuff" style="height: 30%; width: 20%;  top: 62%; left: 80%; rotate: 20deg; position: relative; z-index: 1; display: block;">
-        <button class="clickable" id="phone" style="height: 30%; width: auto; aspect-ratio: 293/582; top: 42.5%; left: 45%; rotate: 35deg; z-index: 2;"><img id="phone_img" src="assets/phone.png"></button>
-        <button class="clickable" id="shark" style="height: 100%; width: auto; aspect-ratio: 269/340; z-index: 1;"><img id="shark_img" src="assets/shark_water.png"></button>
-        <button class="clickable" id="mic" style="height: 33%; width: auto; aspect-ratio: 98/308; top: 42.5%; left: 10%; rotate: 60deg; z-index: 2;"><img id="mic_img" src="assets/mic.png"></button>
-        <button class="clickable" id="crown" style="height: 9.5%; width: auto; aspect-ratio: 1360/222; top: 15%; left: 7.5%; z-index: 2;"><img id="crown_img" src="assets/crown.png"></button>
-    </div>
-
-    <!-- close button -->
-    <button id="close_popup_btn"><b>X</b></button>
-
-    <!-- other images -->
-    <div style="height: 12.5%; width: auto; aspect-ratio: 371/131; position: absolute; top: 1.5%; right: 3%;" id="counter_cloud"><img src="assets/cloud_4.png"><p class="overlay" id="counter">0/19</p></div>
-    <button id="hint_arrow" style="display: none; z-index: 3; background: none; border: none; width: auto; height: 10%; aspect-ratio: 648/236;"><img src="assets/arrow.png"></button>
-
-    <!-- image popups -->
-    <div class="popup" id="intro_cloud_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>Hi! My name is Eesha Kothari.</h2>
-            <p>I'm from Kingsport, Tennessee, and I'm currently a student at Clemson University working on my B.S. in Mechanical Engineering. Want to learn more? Click on the X button in the top right corner to close this pop up, then click on the cloud labeled "Help" for information on how to navigate this site!</p>
+    <head>
+        <meta charset="utf-8">
+        <title>Eesha Kothari</title>
+        <link rel="icon" type="image/x-icon" href="black_rose_contrast.jpg">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body id="body_id" style="background-image: url(assets/light_pond_bg.png);">
+        <div id="body_not_body">
+            <!-- clickable images (make them as buttons with an image inside with the css changed) -->
+            <button class="clickable" id="theme_change" style="height: 20%; width: auto; aspect-ratio: 1/1; top: 4%; left: 2.5%;">
+                <img id="theme_change_img" src="assets/sun.png">
+            </button>
+            <button class="clickable" id="intro_cloud" style="height: 15%; width: auto; aspect-ratio: 246/124; left: 18.5%; top: 10%;">
+                <img id="intro_cloud_img" src="assets/intro_cloud.png">
+                <p class="overlay">CLICK ME!</p>
+            </button>
+            <button class="clickable" id="help_cloud" style="height: 15%; width: auto; aspect-ratio: 213/123; right: 47.5%; top: 2.5%;">
+                <img id="help_cloud_img" src="assets/help_cloud.png">
+                <p class="overlay">Help</p>
+            </button>
+            <button class="clickable" id="hints_cloud" style="height: 15%; width: auto; aspect-ratio: 239/114; right: 25%; top: 15%;">
+                <img id="hints_cloud_img" src="assets/hints_cloud.png">
+                <p class="overlay">Hints</p>
+            </button>
+            <button class="clickable" id="paw" style="height: 6%; width: auto; aspect-ratio: 226/216; top: 52%; left: 12.25%; z-index: 1;">
+                <img id="paw_img" src="assets/paw.png">
+            </button>
+            <button class="clickable" id="duck" style="height: 15%; width: auto; aspect-ratio: 1733/1589; top: 57.5%; left: 31.5%; z-index: 2;">
+                <img id="duck_img" src="assets/duck.png">
+            </button>
+            <button class="clickable" id="magnifying_glass" style="height: 8%; width: auto; aspect-ratio: 1646/1859; top: 42%; left: 11.25%; rotate: 150deg; z-index: 1;">
+                <img id="magnifying_glass_img" src="assets/magnifying_glass.png">
+            </button>
+            <button class="clickable" id="orpheus_heidi" style="height: 22.5%; width: auto; aspect-ratio: 5517/2686; top: 35.5%; left: 60%; z-index: 2;">
+                <img id="orpheus_heidi_img" src="assets/orpheus_heidi.png">
+            </button>
+            <button class="clickable" id="rocket" style="height: 30%; width: 8%; top: 24%; left: 77%; z-index: 1;">
+                <img id="rocket_img" src="assets/rocket.png">
+            </button>
+            <button class="clickable" id="rov" style="height: 25%; width: auto; aspect-ratio: 364/617; top: 66%; left: 23%;">
+                <img id="rov_img" src="assets/rov.png">
+            </button>
+            <button class="clickable" id="wrench" style="height: 2%; width: auto; aspect-ratio: 341/74; top: 56%; left: 74%; z-index: 3;">
+                <img id="wrench_img" src="assets/wrench.png">
+            </button>
+            <button class="clickable" id="computer" style="height: 12.5%; width: auto; aspect-ratio: 430/350; top: 56%; left: 26.5%; z-index: 1;">
+                <img id="computer_img" src="assets/computer.png">
+            </button>
+            <button class="clickable" id="paint" style="height: 9%; width: 8%; aspect-ratio: 619/309; top: 37.5%; left: 34.5%; z-index: 3;">
+                <img id="paint_img" src="assets/paint.png">
+            </button>
+            <button class="clickable" id="pretzel" style="height: 5%; width: auto; aspect-ratio: 800/667; top: 38.75%; left: 59.3%; z-index: 3;">
+                <img id="pretzel_img" src="assets/pretzel.png">
+            </button>
+            <button class="clickable" id="easel" style="height: 27.5%; width: auto; aspect-ratio: 195/299; top: 27.5%; left: 40%; z-index: 1;">
+                <img id="easel_img" src="assets/light_easel.png">
+            </button>
+            <button class="clickable" id="banana_duck" style="height: 25%; width: auto; aspect-ratio: 666/931; top: 35%; left: 3.5%; rotate: 10deg; z-index: 2;">
+                <img id="banana_duck_img" src="assets/banana_duck.png">
+            </button>
+            <button class="clickable" id="flask" style="height: 7.5%; width: auto; aspect-ratio: 773/902; top: 51.5%; left: 1%; rotate: 70deg; z-index: 1;">
+                <img id="flask_img" src="assets/flask.png">
+            </button>
+            <button class="clickable" id="ghostie" style="height: 25%; width: auto; aspect-ratio: 473/990; top: 29%; left: 36%; z-index: 2;">
+                <img id="ghostie_img" src="assets/ghostie.png">
+            </button>
+            <button class="clickable" id="present" style="height: 7.5%; width: auto; aspect-ratio: 6747/5099; top: 43%; left: 67.75%; z-index: 3;">
+                <img id="present_img" src="assets/present.png">
+            </button>
+            <div id="shark_stuff" style="height: 30%; width: 20%;  top: 62%; left: 80%; rotate: 20deg; position: absolute; z-index: 1; display: block;">
+                <button class="clickable" id="phone" style="height: 30%; width: auto; aspect-ratio: 293/582; top: 42.5%; left: 45%; rotate: 35deg; z-index: 2;">
+                    <img id="phone_img" src="assets/phone.png">
+                </button>
+                <button class="clickable" id="shark" style="height: 100%; width: auto; aspect-ratio: 269/340; z-index: 1;">
+                    <img id="shark_img" src="assets/shark_water.png">
+                </button>
+                <button class="clickable" id="mic" style="height: 33%; width: auto; aspect-ratio: 98/308; top: 42.5%; left: 10%; rotate: 60deg; z-index: 2;">
+                    <img id="mic_img" src="assets/mic.png">
+                </button>
+                <button class="clickable" id="crown" style="height: 9.5%; width: auto; aspect-ratio: 1360/222; top: 15%; left: 7.5%; z-index: 2;">
+                    <img id="crown_img" src="assets/crown.png">
+                </button>
+            </div>
+            <!-- close button -->
+            <button id="close_popup_btn">
+                <b>X</b>
+            </button>
+            <!-- other images -->
+            <div style="height: 12.5%; width: auto; aspect-ratio: 371/131; position: absolute; top: 1.5%; right: 3%;" id="counter_cloud">
+                <img src="assets/cloud_4.png">
+                <p class="overlay" id="counter">0/19</p>
+            </div>
+            <button id="hint_arrow" style="display: none; z-index: 3; background: none; border: none; width: auto; height: 10%; aspect-ratio: 648/236;">
+                <img src="assets/arrow.png">
+            </button>
+            <!-- image popups -->
+            <div class="popup" id="intro_cloud_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>Hi! My name is Eesha Kothari.</h2>
+                    <p>I'm from Kingsport, Tennessee, and I'm currently a student at Clemson University working on my B.S. in Mechanical Engineering. Want to learn more? Click on the X button in the top right corner to close this pop up, then click on the cloud labeled "Help" for information on how to navigate this site!</p>
+                </div>
+            </div>
+            <div class="popup" id="help_cloud_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>How to Navigate the Website</h2>
+                    <p>You can find information about my interests, past activities and projects, and other things that I have been or currently am involved in by navigating through this website! Here's how it works: across the scene are 19 specific images that represent an interest, activity, or project of mine. You can click on an image to learn more about what it represents, how I've been involved, and get some additional information about the topic! To close a pop up box, click the "X" button in the top right corner.</p>
+                    <p>You can keep track of how many images you've found using the cloud in the top right corner of the website, which states the number of images you've found so far. If you need help finding another image, click on the cloud labeled "Hints" to get a clue about the next image!</p>
+                    <p>If you ever forget how to navigate the website, you can always return to these instructions by clicking on the "Help" cloud again!</p>
+                </div>
+            </div>
+            <div class="popup" id="hints_cloud_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>Need a Hint?</h2>
+                    <p>Click on the "Get a Hint" button below to get a hint. The button will automatically close this pop-up, and an arrow will appear on the screen that is pointing in the general direction of an image you haven't clicked yet! Click on the arrow to make it disappear. The arrow will also disappear once you click the image it is pointing to!</p>
+                    <p>
+                        If you don't want a hint, simply close this pop up by clicking the "X" button in the top right corner <b>without</b>
+                        clicking the "Get a Hint" button below!
+                    </p>
+                    <button id="get_hint" style="translate: -50%; border: 0.25rem rgb(212, 169, 88) solid; color: rgb(212, 169, 88); font-family: Papernotes Sketch; font-size: 1rem; padding: 1%; border-radius: 1rem;">Get a Hint</button>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="paw_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Paw</h2>
+                    <br>
+                    <img src="assets/paw.png" class="popup_img" style="aspect-ratio: 226/216;">
+                    <p>The paw is the logo of Clemson University, whose mascot is a tiger! I am currently a Class of 2030 Mechanical Engineering student at Clemson, and am also a member of both the Honors College and the National Scholars Program, Clemson's most prestigious and selective undergraduate scholarship program.</p>
+                    <a target="_blank" class="popup_link" href="https://www.clemson.edu/">Learn more about Clemson here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://www.clemson.edu/academics/programs/national-scholars/">Learn more about the National Scholars Program here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="duck_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Duck</h2>
+                    <br>
+                    <img src="assets/duck.png" class="popup_img" style="aspect-ratio: 1733/1589;">
+                    <p>The duck represents my favorite quote:</p>
+                    <p>"Be like a duck. Calm on the surface, but always paddling like the dickens underneath."</p>
+                    <p>~ Michael Caine</p>
+                </div>
+            </div>
+            <div class="popup" id="magnifying_glass_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Magnifying Glass</h2>
+                    <br>
+                    <img src="assets/magnifying_glass.png" class="popup_img" style="aspect-ratio: 1646/1859;">
+                    <p>The magnifying glass represents my research experience. In high school, during the 2024-2025 school year, I participated in the AP Research course, where I conducted my own research project! My project was mixed-method and quasi-experimental, and it explored how 3D printed objects made of PLA and ABS filaments with varying infill densities degraded when immersed in isopropyl alcohol for 24 hours.</p>
+                    <p>I found that none of the objects fully destabilized, and that the change in mass was greater for larger infill densities and PLA. Ultimately, I concluded that isopropyl alcohol does not harm the functionality of 3D printed PLA and ABs objects, but is not an effective chemical for improving their surface quality. For the AP Research course, I also wrote a full research paper as well as orally presented and defended my research.</p>
+                </div>
+            </div>
+            <div class="popup" id="orpheus_heidi_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>Orpheus and Heidi</h2>
+                    <br>
+                    <img src="assets/orpheus_heidi.png" class="popup_img" style="aspect-ratio: 5517/2686;">
+                    <p>Orpheus (the dino) and Heidi (the raccoon) are the mascots of Hack Club, a global nonprofit network of teenage makers and student-led coding clubs. It runs a wide variety of jams, workshops, You-Ship-We-Ship programs, virtual events, and in-person Hackathons to inspire projects, help students learn how to make them, and provide a fun, collaborative environment for them to build those projects!</p>
+                    <p>I joined the Hack Club community in March 2024, where I was part of the Virtual Events Team and the Welcoming Team. The Virtual Events Team manages and runs virtual events like workshops, game nights, zoom calls with leaders in STEM, and much more, as well as helping community members run their own events! I served also as the Director of the Virtual Events Team from November 2024 through May 2026.</p>
+                    <p>As part of the Welcoming Team, I welcomed new members to the Hack Club Slack community, and through Hack Club as a whole, I've learned Javascript for web development projects by participating in programs and events like Boba Drops, Arcade, and the Ascend Hackathon!</p>
+                    <a href="https://hackclub.com/" class="popup_link" target="_blank">Learn more about Hack Club here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="rocket_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Rocket</h2>
+                    <br>
+                    <img src="assets/rocket.png" class="popup_img" style="aspect-ratio: 320/559;">
+                    <p>The rocket represents Ascend, a space-themed Hackathon that was organized by Hack Club and located at SpaceX in Los Angeles! I had the privilege of being one of 50 girls from around the world who were selected to participate in Ascend in November 2024. At the hackathon, I was able to tour SpaceX, and I worked with two others to create the Banana Duck Alien Assimilator, a 3D game where humans attempt to have peaceful conversations with Banana Duck aliens, or fight them, if the conversation goes badly.</p>
+                    <a target="_blank" class="popup_link" href="https://ascend.hackclub.com/">Learn more about Ascend here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://ascend.hackclub.com/">Check out the Banana Duck Alien Assimilator Github repository Here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="rov_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The ROV</h2>
+                    <br>
+                    <img src="assets/rov_rotated.png" class="popup_img" style="aspect-ratio: 556/496;">
+                    <p>The ROV represents the MATE ROV Competition, an underwater robot (AKA a Remotely Operated Vehicle or ROV) challenge that engages a global community of learners and focuses on developing new, innovative solutions to real-world problems in the marine environment! Teams can be as small as 3 students, or much larger with over 20 students.</p>
+                    <p>For the competition, teams develop robots that can be piloted remotely to swim underwater and perform various tasks such as picking up objects and moving things around. I served as the captain of Kingsport Technologies, my school's underwater robotics team, during the 2025-2026 season and the Electronics/Programming Lead during the 2023-2024 and 2024-2025 seasons.</p>
+                    <a target="_blank" class="popup_link" href="https://materovcompetition.org/">Learn more about the MATE ROV Competition here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://kingsporttechnology.wixsite.com/kingsporttechnologie">Learn more about the Kingsport Technologies team here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="mic_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Microphone</h2>
+                    <br>
+                    <img src="assets/mic.png" class="popup_img" style="aspect-ratio: 98/308;">
+                    <p>The microphone represents Gavel Club, a program that helps students develop crucial communication and public speaking skills, as well as the necessary writing and listening skills needed to achieve them! The focus of the program is ten speeches that each focus on improving a different skill, with members receiving an award once they have presented all ten.</p>
+                    <p>I served as the President of my local gavel club from May 2025 to March 2026, served as the Vice President of Education from April 2023 to May 2025, and have been a member since August 2021. As a result of giving all ten speeches and completing the Competent Communicator Manual, I earned the Competent Communicator Award in February 2025. I also earned the Competent Leadership Award in April 2025 after completing the Competent Leadership Manual, taking on a variety of leadership roles, organizing events, and mentoring members. I particularly enjoy giving satirical and comedic speeches!</p>
+                    <a target="_blank" class="popup_link" href="https://www.toastmasters.org/">Learn more about Toastmasters International here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="wrench_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Wrench</h2>
+                    <br>
+                    <img src="assets/wrench.png" class="popup_img" style="height: 25%; aspect-ratio: 341/74;">
+                    <p>The wrench represents the Inventor Center, a local makerspace that I have volunteered since 2023! At the Inventor Center, I have developed woodworking, metalsmithing, laser cutting, 3D printing, and electronics skills. I have also helped out with machine cleaning and maintenance, class preparation by cleaning, updating calendars, and setting up materials, and I have volunteered at larger events like #MadeInKingsport, an annual event that celebrates makers and creaters in our area, by organizing and leading volunteer teams from my high school!</p>
+                    <a target="_blank" class="popup_link" href="https://theinventorcenter.com/">Learn more about the Inventor Center here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="computer_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Computer</h2>
+                    <br>
+                    <img src="assets/computer.png" class="popup_img" style="aspect-ratio: 430/350;">
+                    <p>The computer represents and features the logo of Help Me Stream Research Foundation, a nonprofit focused on bringing streaming solutions to remote areas, where I interned from September 2024 to March 2026! I primarily assisted with hardware and software, including electronic repair and assembly and coding an inventory app, but I also provided insight about Computer-Aided Design (CAD) and 3D printing when necessary.</p>
+                    <a target="_blank" class="popup_link" href="https://www.hmsrf.org/">Learn more about Help Me Stream Research Foundation here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="paint_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Paintbrushes and Palette</h2>
+                    <br>
+                    <img src="assets/paint.png" class="popup_img" style="aspect-ratio: 619/309;">
+                    <p>The paintbrushes and paint palette represent Engage Kingsport, a department in the Office of Cultural Arts, where I have volunteered since 2024, primarily by distributing flyers for events and by helping organize, set up, and lead volunteer teams from my high school for the April 2024, May 2025, and April 2026 Kingsport ARTS Festivals, which celebrate artists in the area and encourage community participation in the arts!</p>
+                    <a target="_blank" class="popup_link" href="https://www.artskingsport.org/engage-kingsport/">Learn more about Engage Kingsport here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="pretzel_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Pretzel</h2>
+                    <br>
+                    <img src="assets/pretzel.png" class="popup_img" style="aspect-ratio: 800/667;">
+                    <p>The pretzel represents German, a language that I formally learned for four years in high school and am continuing to learn independently! In 2025, I passed the Deutsches Sprachdiplom (DSD) I, which certifies that I am proficient in German at a B1 level.</p>
+                    <!--eventually insert info about AP exam once I get that score back-->
+                    <a target="_blank" class="popup_link" href="https://www.kmk.org/en/kultusministerkonferenz/uebergreifende-themen/german-language-diploma.html">Learn more about the Deutsches Sprachdiplom (DSD) here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="easel_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Easel</h2>
+                    <br>
+                    <img src="assets/light_easel.png" class="popup_img" id="easel_popup_img" style="aspect-ratio: 195/299;">
+                    <p>The easel represents the Art History Study Site, a website I made to memorize the identifier information for the AP Art History Course! The website can be used to review the images, names, dates, materials, function, content, and contexts for each of the 250 images for the course. You can practice with a memory matching game or with a multiple choice review.</p>
+                    <a target="_blank" class="popup_link" href="http://arthistory.eesha-kothari.com/">Check out the Art History Study Site here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/art-history-review">Check out the Art History Study Site's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="banana_duck_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Banana Duck</h2>
+                    <br>
+                    <img src="assets/banana_duck.png" class="popup_img" style="aspect-ratio: 666/931;">
+                    <p>The banana duck represents the Official Banana Duck Conservation Website. In recent years, climate change and deforestation has led to the endagerment and extinction of many species, several of which are found in tropical rainforests beyond our thought. However, one species, the Banana Duck, is disappearing before our very eyes! With the Official Banana Duck Conservation Website, learn what you can do to help conserve banana ducks! Read articles, watch a nature documentary, explore merchandise, and even chat with a real-life banana duck in real-time!</p>
+                    <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/banana_duck_site/">Check out the Official Banana Duck Conservation Website here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/banana_duck_site">Check out the Official Banana Duck Conservation Website's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="ghostie_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Ghost</h2>
+                    <br>
+                    <img src="assets/ghostie.png" class="popup_img" style="aspect-ratio: 473/990;">
+                    <p>The ghost represents the Ghostie Graveyard, a project I created for Hack Club's Boba Manor event which received 4th place in the event! Enter the graveyard...if you dare, and make sure to have your volume turned up! Featuring my own ghost drawings with trendy accessories sparkling personalities.</p>
+                    <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/ghostie-graveyard/">Check out the Ghostie Graveyard website here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/ghostie-graveyard">Check out the Ghostie Graveyard's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="present_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Present</h2>
+                    <br>
+                    <img src="assets/present.png" class="popup_img" style="aspect-ratio: 6747/5099;">
+                    <p>The present represents the Winter Boba Site, a project I created for Hack Club's Winter Boba event! Were you naughty or nice this year? Find out if you were on Santa's Nice List or Naughty List by seeing the presents you got this Christmas!</p>
+                    <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/winter-boba-site/">Check out the Winter Boba Site here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/winter-boba-site">Check out the Winter Boba Site's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="phone_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Phone</h2>
+                    <br>
+                    <img src="assets/phone.png" class="popup_img" style="aspect-ratio: 293/582;">
+                    <p>Want to learn more or just want to say hello? Here are the best ways to contact me:</p>
+                    <p>
+                        <b>Email:</b>
+                        <a target="_blank" href="mailto:eeshaskothari@gmail.com">eeshaskothari@gmail.com</a>
+                    </p>
+                    <p>
+                        <b>Github:</b>
+                        <a target="_blank" href="https://github.com/beepboopblorp">@beepboopblorp</a>
+                    </p>
+                    <p>
+                        <b>LinkedIn:</b>
+                        <a target="_blank" href="https://www.linkedin.com/in/eesha-kothari-b2aa4a413/">Eesha Kothari</a>
+                    </p>
+                    <p>
+                        <b>Discord:</b>
+                        @_beepboopblorp_
+                    </p>
+                    <p>
+                        If you're a member of Hack Club, you can also find me in the <b>Slack:</b>
+                        <a target="_blank" href="https://hackclub.enterprise.slack.com/team/U06QST7V0J2">@eesha</a>
+                    </p>
+                </div>
+            </div>
+            <div class="popup" id="shark_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Shark</h2>
+                    <br>
+                    <img src="assets/shark.png" class="popup_img" style="aspect-ratio: 269/340;">
+                    <p>
+                        The shark represents the Meet the Head Shork website, where you can meet Hack Club's very own <s>baby</s> Head Shark! Please stay for at least 15 seconds and keep your volume turned up to properly appreciate the Head Shark. Just click the "Meet the Head Shark" button to start!
+                    </p>
+                    <a target="_blank" class="popup_link" href="https://headshark.eesha-kothari.com/">Meet the Head Shark here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/meet-the-head-shork">Check out the Meet the Head Shork website's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="crown_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Crown</h2>
+                    <br>
+                    <img src="assets/crown.png" class="popup_img" style="height: 20%; aspect-ratio: 1360/222;">
+                    <p>The crown is the logo of PBS Scholars' Bowl, an academic competition where teams of four students (plus alternates) answer trivia questions about various topics, including art, foreign languages, grammar, history, biology, chemistry, math, mythology, geography, sports and literature! On the team, I focus on math, art, physics, technology, and German, although I contribute to most subjects. During the 2025-2026 season, I served as the captain of my school's A Team, where we placed 2nd overall, and during the 2024-2025 season, I served as the Captain of my school's B Team.</p>
+                    <p>To help study for Scholars' Bowl, I created the Trivia Study Site, a website for reviewing both past Scholars' Bowl questions as well as related study topics through different multiple choice and free response settings for varied practice. The website fetches both the past questions and the information for study topics from a separate google sheet, so that practice information can constantly be updated and improved!</p>
+                    <a target="_blank" class="popup_link" href="https://www.pbs.org/show/east-tennessee-pbs-scholars-bowl/">Learn more about PBS Scholars' Bowl and watch past episodes here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="http://triviastudy.eesha-kothari.com/">Check out the Trivia Study Site here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/trivia-study-site">Check out the Trivia Study Site's Github repository here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="flask_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <h2>The Erlenmeyer Flask</h2>
+                    <br>
+                    <img src="assets/flask.png" class="popup_img" style="aspect-ratio: 773/902;">
+                    <p>The Erlenmeyer flask represents Science Bowl, an academic competition testing knowledge of various areas within STEM, covering topics such as physics, chemistry, math, biology, and earth and space! Teams can consist of four main competitors, as well as coaches, mentors, and alternates.</p>
+                    <p>I participated in my high school's team for three years and my middle school's team for two years, all of which was at the state level through the Tennessee Science Bowl. On my high school's team, my focus was primarily physics, but I also contributed with chemistry and mathematics questions as well. During the 2025 competition, my team placed 4th in the Tennessee Science Bowl, which was the highest the team had ever placed, and for the 2026 competition, I had the privilege of serving as my team's captain!</p>
+                    <a target="_blank" class="popup_link" href="https://science.osti.gov/wdts/nsb">Learn more about the National Science Bowl here!</a>
+                    <br>
+                    <a target="_blank" class="popup_link" href="https://www.orau.gov/sciencebowl/">Learn more about the Tennessee Science Bowl here!</a>
+                    <br>
+                </div>
+            </div>
+            <div class="popup" id="finished_popup">
+                <img class="frame" src="assets/frame.png">
+                <div class="inner"></div>
+                <div class="inner-inner">
+                    <div class="img_row" style="top: 0;"><img src="assets/banana_duck.png"><img src="assets/duck.png"><img src="assets/flask.png"><img src="assets/ghostie.png"><img src="assets/magnifying_glass.png"><img src="assets/mic.png"><img src="assets/orpheus_heidi.png"><img src="assets/paw.png"></div>
+                    <h2 style="position: fixed; top: 50%; left: 50%; translate: -50% -50%; width: 100%; height: 17.5%; font-size: 64px; margin: 0; padding: 0;">Congratulations! You found all 19 images!</h2>
+                    <div class="img_row" style="bottom: 0;"><img src="assets/computer.png"><img src="assets/phone.png"><img src="assets/present.png"><img src="assets/pretzel.png"><img src="assets/rocket.png"><img src="assets/rov_rotated.png"><img src="assets/shark.png"><img src="assets/wrench-rotated.png"><img id="easel_finished_popup" src="assets/light_easel.png"></div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="popup" id="help_cloud_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>How to Navigate the Website</h2>
-            <p>You can find information about my interests, past activities and projects, and other things that I have been or currently am involved in by navigating through this website! Here's how it works: across the scene are 19 specific images that represent an interest, activity, or project of mine. You can click on an image to learn more about what it represents, how I've been involved, and get some additional information about the topic! To close a pop up box, click the "X" button in the top right corner.</p>
-            <p>You can keep track of how many images you've found using the cloud in the top right corner of the website, which states the number of images you've found so far. If you need help finding another image, click on the cloud labeled "Hints" to get a clue about the next image!</p>
-            <p>If you ever forget how to navigate the website, you can always return to these instructions by clicking on the "Help" cloud again!</p>
+        <div class="popup" id="notif_popup">
+            <img class="frame" src="assets/frame.png">
+            <div class="inner"></div>
+            <div class="inner-inner">
+                <p>
+                    This website will display better on a device with a width that is greater than its height. If you are on mobile, try turning your device sideways to landscape mode, or if you are on a computer, try adjusting your window size instead.
+                    <br><br>
+                    Click the X button in the top right corner to close this popup.
+                </p>
+            </div>
+            <button id="close_popup_btn_2"><b>X</b></button>
         </div>
-    </div>
-    <div class="popup" id="hints_cloud_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>Need a Hint?</h2>
-            <p>Click on the "Get a Hint" button below to get a hint. The button will automatically close this pop-up, and an arrow will appear on the screen that is pointing in the general direction of an image you haven't clicked yet. Click on the arrow to make it disappear. The arrow will also disappear once you click the image it is pointing to.</p>
-            <p>If you do not want to receive a hint, simply close this pop up by clicking the "X" button in the top right corner <b>without</b> clicking the "Get a Hint" button below.</p>
-            <button id="get_hint" style="translate: -50%; border: 0.25rem rgb(212, 169, 88) solid; color: rgb(212, 169, 88); font-family: Papernotes Sketch; font-size: 1rem; padding: 1%; border-radius: 1rem;">Get a Hint</button><br><br><br>
-        </div>
-    </div>
-    <div class="popup" id="paw_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Paw</h2><br>
-            <img src="assets/paw.png" class="popup_img" style="aspect-ratio: 226/216;">
-            <p>The paw is the logo of Clemson University, whose mascot is a tiger. I am currently a Class of 2030 Mechanical Engineering student at Clemson, and am also a member of both the Honors College and the National Scholars Program.</p>
-            <a target="_blank" class="popup_link" href="https://www.clemson.edu/">Learn more about Clemson here!</a><br>
-            <a target="_blank" class="popup_link" href="https://www.clemson.edu/academics/programs/national-scholars/">Learn more about the National Scholars Program here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="duck_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Duck</h2><br>
-            <img src="assets/duck.png" class="popup_img" style="aspect-ratio: 1733/1589;">
-            <p>The duck represents my favorite quote:</p>
-            <p>"Be like a duck. Calm on the surface, but always paddling like the dickens underneath."</p>
-            <p>~ Michael Caine</p>
-        </div>
-    </div>
-    <div class="popup" id="magnifying_glass_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Magnifying Glass</h2><br>
-            <img src="assets/magnifying_glass.png" class="popup_img" style="aspect-ratio: 1646/1859;">
-            <p>The magnifying glass represents my research experience. In high school, during the 2024-2025 school year, I participated in the AP Research course, where I was to conduct my own research project. My project was mixed-method and quasi-experimental, and it explored how 3D printed objects made of PLA and ABS filaments with varying infill densities degrade when immersed in isopropyl alcohol for 24 hours. I found that none of the objects fully destabilized, and that the change in mass was greater for larger infill densities and PLA. Ultimately, I concluded that isopropyl alcohol does not harm the functionality of 3D printed PLA and ABs objects, but is not an effective chemical for improving their surface quality. For the AP Research course, I also wrote a full research paper as well as orally presented and defended my research.</p>
-        </div>
-    </div>
-    <div class="popup" id="orpheus_heidi_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>Orpheus and Heidi</h2><br>
-            <img src="assets/orpheus_heidi.png" class="popup_img" style="aspect-ratio: 5517/2686;">
-            <p>Orpheus (the dino) and Heidi (the raccoon) are the mascots of Hack Club, a global nonprofit network of teenage makers and student-led coding clubs. It runs a wide variety of jams, workshops, You-Ship-We-Ship programs, virtual events, and in-person Hackathons to inspire projects, help students learn how to make them, and provide a fun, collaborative environment for them to build those projects.</p>
-            <p>I joined the Hack Club community in March 2024, where I was part of the Virtual Events Team and the Welcoming Team. The Virtual Events Team manages and runs virtual events like workshops, game jams, online escape rooms, game nights, zoom calls with leaders in STEM, and much more, as well as helping community members run their own events. Additionally, I served as the Director from the Virtual Events Team from November 2024 through May 2026. As part of the Welcoming Team, I welcomed new members to the Hack Club Slack community. Through Hack Club, I've learned Javascript for web development projects by participating in programs and events like Boba Drops, Arcade, and the Ascend Hackathon.</p>
-            <a href="https://hackclub.com/" class="popup_link" target="_blank">Learn more about Hack Club here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="rocket_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Rocket</h2><br>
-            <img src="assets/rocket.png" class="popup_img" style="aspect-ratio: 320/559;">
-            <p>The rocket represents Ascend, a space-themed Hackathon that was organized by Hack Club and located at SpaceX in Los Angeles. I had the privilege of being one of 50 girls from around the world who were selected to participate in Ascend in November 2024. At the hackathon, I was able to tour SpaceX and worked with two others to create the Banana Duck Alien Assimilator, a 3D game where humans attempt to have peaceful conversations with Banana Duck aliens, or fight them, if the conversation goes badly.</p>
-            <a target="_blank" class="popup_link" href="https://ascend.hackclub.com/">Learn more about Ascend here!</a><br>
-            <a target="_blank" class="popup_link" href="https://ascend.hackclub.com/">Check out the Banana Duck Alien Assimilator Github repository Here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="rov_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The ROV</h2><br>
-            <img src="assets/rov_rotated.png" class="popup_img" style="aspect-ratio: 556/496;">
-            <p>The ROV represents the MATE ROV Competition, an underwater robotics (aka remotely operated vehicle or ROV) challenge that engages a global community of learners and focuses on developing new, innovative solutions to real-world problems in the marine environment. Teams can be as small as 3 students, or much larger with over 20 students.</p>
-            <p>For the competition, teams develop robots that can be piloted remotely to swim underwater and perform various tasks such as picking up objects and moving things around. I served as the captain of Kingsport Technologies, my school's underwater robotics team, during the 2025-2026 season, and as the Electronics/Programming Lead during teh 2023-2024 and 2024-2025 seasons.</p>
-            <a target="_blank" class="popup_link" href="https://materovcompetition.org/">Learn more about the MATE ROV Competition here!</a><br>
-            <a target="_blank" class="popup_link" href="https://kingsporttechnology.wixsite.com/kingsporttechnologie">Learn more about the Kingsport Technologies team here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="mic_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Microphone</h2><br>
-            <img src="assets/mic.png" class="popup_img" style="aspect-ratio: 98/308;">
-            <p>The microphone represents Gavel Club, a program that helps students develop crucial communication and public speaking skills, as well as the necessary writing and listening skills needed to achieve that. The focus of the program is ten speeches that each focus on improving a different skill, with members receiving an award once they have presented all ten.</p>
-            <p>I served as the President of my local gavel club from May 2025 to March 2026, served as the Vice President of Education from April 2023 to May 2025, and have been a member since August 2021. As a result of giving all ten speeches and completing the Competent Communicator Manual, I earned the Competent Communicator Award in February 2025. I also earned the Competent Leadership Award in April 2025 after completing the Competent Leadership Manual, taking on a variety of leadership roles, organizing events, and mentoring members. I particularly enjoy giving satirical and comedic speeches.</p>
-            <a target="_blank" class="popup_link" href="https://www.toastmasters.org/">Learn more about Toastmasters International here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="wrench_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Wrench</h2><br>
-            <img src="assets/wrench.png" class="popup_img" style="height: 25%; aspect-ratio: 341/74;">
-            <p>The wrench represents the Inventor Center, a local makerspace, where I have volunteered since 2023. At the Inventor Center, I have developed woodworking, metalsmithing, laser cutting, 3D printing, and electronics skills. I have also helped out with machine cleaning and maintenance, class preparation by cleaning, updating calendars, and setting up materials, and I have volunteered at larger events like #MadeInKingsport, an annual event that celebrates makers and creaters in our area, by organizing and leading volunteer teams from my high school.</p>
-            <a target="_blank" class="popup_link" href="https://theinventorcenter.com/">Learn more about the Inventor Center here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="computer_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Computer</h2><br>
-            <img src="assets/computer.png" class="popup_img" style="aspect-ratio: 430/350;">
-            <p>The computer represents and features the logo of Help Me Stream Research Foundation, a nonprofit focused on bringing streaming solutions to remote areas, where I interned from September 2024 to March 2026. I primarily assisted with hardware and software, including electronic repair and assembly and coding an inventory app, but I also provided insight about Computer-Aided Design (CAD) and 3D printing when necessary.</p>
-            <a target="_blank" class="popup_link" href="https://www.hmsrf.org/">Learn more about Help Me Stream Research Foundation here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="paint_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Paintbrushes and Palette</h2><br>
-            <img src="assets/paint.png" class="popup_img" style="aspect-ratio: 619/309;">
-            <p>The paintbrushes and paint palette represent Engage Kingsport, a department in the Office of Cultural Arts, where I have volunteered since 2024, primarily by distributing flyers for events and by helping organize, set up, and lead volunteer teams from my high school for the April 2024, May 2025, and April 2026 Kingsport ARTS Festivals, which celebrate artists in the area and encourage community participation in the arts.</p>
-            <a target="_blank" class="popup_link" href="https://www.artskingsport.org/engage-kingsport/">Learn more about Engage Kingsport here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="pretzel_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Pretzel</h2><br>
-            <img src="assets/pretzel.png" class="popup_img" style="aspect-ratio: 800/667;">
-            <p>The pretzel represents German, a language that I formally learned for four years in high school and am continuing to learn independently. In 2025, I passed the Deutsches Sprachdiplom (DSD) I, which certifies that I am proficient in German at a B1 level.</p> <!--eventually insert info about AP exam once I get that score back-->
-            <a target="_blank" class="popup_link" href="https://www.kmk.org/en/kultusministerkonferenz/uebergreifende-themen/german-language-diploma.html">Learn more about the Deutsches Sprachdiplom (DSD) here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="easel_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Easel</h2><br>
-            <img src="assets/light_easel.png" class="popup_img" id="easel_popup_img" style="aspect-ratio: 195/299;">
-            <p>The easel represents the Art History Study Site, a website I made to practice and memorize the identifier information for the AP Art History Course! The website can be used to review the images, names, dates, materials, function, content, and contexts for each of the 250 images for the course. You can practice with a memory matching game or with a multiple choice review.</p>
-            <a target="_blank" class="popup_link" href="http://arthistory.eesha-kothari.com/">Check out the Art History Study Site here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/art-history-review">Check out the Art History Study Site's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="banana_duck_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Banana Duck</h2><br>
-            <img src="assets/banana_duck.png" class="popup_img" style="aspect-ratio: 666/931;">
-            <p>The banana duck represents the Official Banana Duck Conservation Website. In recent years, climate change and deforestation has led to the endagerment and extinction of many species. Many of these species are found in tropical rainforests beyond our thought. However, one species, the Banana Duck, is disappearing before our very eyes. With the Official Banana Duck Conservation Website, learn what you can do to help conserve banana ducks! Read articles, watch a nature documentary, explore merchandise, and even chat with a real-life banana duck in real-time!</p>
-            <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/banana_duck_site/">Check out the Official Banana Duck Conservation Website here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/banana_duck_site">Check out the Official Banana Duck Conservation Website's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="ghostie_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Ghost</h2><br>
-            <img src="assets/ghostie.png" class="popup_img" style="aspect-ratio: 473/990;">
-            <p>The ghost represents the Ghostie Graveyard, a project I created for Hack Club's Boba Manor event which received 4th place in the event! Enter the graveyard...if you dare, and make sure to have your volume turned up! Featuring my own ghost drawings with trendy accessories sparkling personalities.</p>
-            <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/ghostie-graveyard/">Check out the Ghostie Graveyard website here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/ghostie-graveyard">Check out the Ghostie Graveyard's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="present_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Present</h2><br>
-            <img src="assets/present.png" class="popup_img" style="aspect-ratio: 6747/5099;">
-            <p>The present represents the Winter Boba Site, a project I created for Hack Club's Winter Boba event! Were you naughty or nice this year? Find out if you were on Santa's Nice List or Naughty List by seeing the presents you got this Christmas!</p>
-            <a target="_blank" class="popup_link" href="https://beepboopblorp.github.io/winter-boba-site/">Check out the Winter Boba Site here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/winter-boba-site">Check out the Winter Boba Site's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="phone_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Phone</h2><br>
-            <img src="assets/phone.png" class="popup_img" style="aspect-ratio: 293/582;">
-            <p>Want to learn more or just want to say hello? Here are the best ways to contact me:</p>
-            <p><b>Email:</b> <a target="_blank" href="mailto:eeshaskothari@gmail.com">eeshaskothari@gmail.com</a></p>
-            <p><b>Github:</b> <a target="_blank" href="https://github.com/beepboopblorp">@beepboopblorp</a></p>
-            <p><b>LinkedIn:</b> <a target="_blank" href="https://www.linkedin.com/in/eesha-kothari-b2aa4a413/">Eesha Kothari</a></p>
-            <p><b>Discord:</b> @_beepboopblorp_</p>
-            <p>If you're a member of Hack Club, you can also find me in the <b>Slack:</b> <a target="_blank" href="https://hackclub.enterprise.slack.com/team/U06QST7V0J2">@eesha</a></p>
-        </div>
-    </div>
-    <div class="popup" id="shark_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Shark</h2><br>
-            <img src="assets/shark.png" class="popup_img" style="aspect-ratio: 269/340;">
-            <p>The shark represents the Meet the Head Shork website, where you can meet Hack Club's very own <s>baby</s> Head Shark! Please stay for at least 15 seconds and keep your volume turned up to properly appreciate the Head Shark. Just click the "Meet the Head Shark" button to start!</p>
-            <a target="_blank" class="popup_link" href="https://headshark.eesha-kothari.com/">Meet the Head Shark here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/meet-the-head-shork">Check out the Meet the Head Shork website's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="crown_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Crown</h2><br>
-            <img src="assets/crown.png" class="popup_img" style="height: 20%; aspect-ratio: 1360/222;">
-            <p>The crown is the logo of PBS Scholars' Bowl, an academic competition where teams of four students (plus alternates) answer trivia questions about various topics, including art, foreign languages, grammar, history, biology, chemistry, math, mythology, geography, sports and literature. On the team, I focus on math, art, physics, technology, and German, although I contribute to most subjects. During the 2025-2026 season, I served as the captain of my school's A Team, where we placed 2nd overall, and during the 2024-2025 season, I served as the Captain of my school's B Team.</p>
-            <p>To help study for Scholars' Bowl, I created the Trivia Study Site, a website for reviewing both past Scholars' Bowl questions as well as related study topics through different multiple choice and free response settings for varied practice. The website fetches both the past questions and the information for study topics from a separate google sheet, so that practice information can constantly be updated and improved.</p>
-            <a target="_blank" class="popup_link" href="https://www.pbs.org/show/east-tennessee-pbs-scholars-bowl/">Learn more about PBS Scholars' Bowl and watch past episodes here!</a><br>
-            <a target="_blank" class="popup_link" href="http://triviastudy.eesha-kothari.com/">Check out the Trivia Study Site here!</a><br>
-            <a target="_blank" class="popup_link" href="https://github.com/beepboopblorp/trivia-study-site">Check out the Trivia Study Site's Github repository here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="flask_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2>The Erlenmeyer Flask</h2><br>
-            <img src="assets/flask.png" class="popup_img" style="aspect-ratio: 773/902;">
-            <p>The Erlenmeyer flask represents Science Bowl, an academic competition testing knowledge of various areas within science and mathematics. It covers topics such as physics, chemistry, math, biology, and earth and space. Teams can consist of four main competitors, as well as coaches, mentors, and alternates.</p>
-            <p>I participated in my high school's team for three years and my middle school's team for two years, all of which was at the state level through the Tennessee Science Bowl. On my high school's team, my focus was primarily physics, but I also contributed with chemistry and mathematics questions as well. During the 2025 competition, my team placed 4th in the Tennessee Science Bowl, which was the highest the team had ever placed, and for the 2026 competition, I had the privilege of serving as my team's captain.</p>
-            <a target="_blank" class="popup_link" href="https://science.osti.gov/wdts/nsb">Learn more about the National Science Bowl here!</a><br>
-            <a target="_blank" class="popup_link" href="https://www.orau.gov/sciencebowl/">Learn more about the Tennessee Science Bowl here!</a><br>
-        </div>
-    </div>
-    <div class="popup" id="finished_popup">
-        <img class="frame" src="assets/frame.png">
-        <div class="inner"></div>
-        <div class="inner-inner">
-            <h2 style="position: fixed; top: 50%; left: 50%; translate: -50% -50%; width: 100%; font-size: 4rem;">Congratulations! You found all 19 images!</h2>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
+        <script src="script.js"></script>
+    </body>
 </html>

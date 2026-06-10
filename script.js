@@ -1,9 +1,9 @@
-
-//html elementsfor each image button that can e clicked on
+//html elementsfor each image button that can be clicked on
 const theme_change = document.getElementById("theme_change"); //sun or moon, image changes
 const get_hint = document.getElementById("get_hint");
 const hint_arrow = document.getElementById("hint_arrow");
 const close_popup_btn = document.getElementById("close_popup_btn");
+const close_popup_btn_2 = document.getElementById("close_popup_btn_2");
 let current_count = 0;
 let congrats_shown = false;
 const image_elements = [
@@ -30,7 +30,13 @@ const image_elements = [
 {img_element: document.getElementById("flask"), clicked: false, hint_top: "62.5%", hint_left: "1%", hint_rotate: "-140deg"}, //science bowl
 {img_element: document.getElementById("shark"), clicked: false, hint_top: "45%", hint_left: "87.5%", hint_rotate: "130deg"}]; //meet head shark site
 
+div_resize();
+
 //event listeners
+if(window) {
+    window.addEventListener("resize", div_resize);
+}
+
 if(theme_change) {
     theme_change.addEventListener('click', () => {
         if(light_mode()) {
@@ -38,11 +44,13 @@ if(theme_change) {
             document.getElementById("easel_img").src = "assets/dark_easel.png";
             document.getElementById("theme_change_img").src = "assets/moon.png";
             document.getElementById("easel_popup_img").src = "assets/dark_easel.png";
+            document.getElementById("easel_finished_popup").src = "assets/dark_easel.png";
         } else {
             document.getElementById('body_id').style.backgroundImage = "url(assets/light_pond_bg.png)";
             document.getElementById("easel_img").src = "assets/light_easel.png";
             document.getElementById("theme_change_img").src = "assets/sun.png";
             document.getElementById("easel_popup_img").src = "assets/light_easel.png";
+            document.getElementById("easel_finished_popup").src = "assets/light_easel.png";
         }
     })
 }
@@ -56,26 +64,84 @@ for(let i=0; i < image_elements.length; i++) {
 if(get_hint) {get_hint.addEventListener('click', show_hint);}
 
 if(close_popup_btn) close_popup_btn.addEventListener("click", () => {
-    for(let i=0; i<document.getElementsByClassName("popup").length; i++) {
-        document.getElementsByClassName("popup")[i].style.display = "none";
-    }
     close_popup_btn.style.display = "none";
+    for(let i=0; i<document.getElementsByClassName("popup").length; i++) {
+        if(document.getElementsByClassName("popup")[i].style.display == "block") {
+            document.getElementsByClassName("popup")[i].style.animation = "close_popup 0.75s";
+            setTimeout(() => {
+                document.getElementsByClassName("popup")[i].style.display = "none";
+                document.getElementsByClassName("popup")[i].style.animation = "";
+            }, 750);
+        }
+    }
     if(document.getElementById("counter").innerText == "19/19" && !congrats_shown) {
         show_popup("finished");
         congrats_shown = true;
     }
 });
 
+if(close_popup_btn_2) close_popup_btn_2.addEventListener("click", () => {
+    document.getElementById("notif_popup").style.animation = "close_popup 0.75s";
+    setTimeout(() => {
+        document.getElementById("notif_popup").style.display = "none";
+        document.getElementById("notif_popup").style.animation = "";
+    }, 1000);
+    close_popup_btn_2.style.display = "none";
+});
+
 if(hint_arrow) hint_arrow.addEventListener("click", ()=> hint_arrow.style.display = 'none');
 
 
 //functions
+function div_resize() {
+    if(window.innerWidth > (1312/610) * window.innerHeight) {
+        document.getElementById("body_not_body").style.height = "100%";
+        document.getElementById("body_not_body").style.width = "auto";
+    } else {
+        document.getElementById("body_not_body").style.width = "100%";
+        document.getElementById("body_not_body").style.height = "auto";
+    }
+
+    update_font_size();
+
+    if(window.innerWidth < window.innerHeight) {
+        show_popup_2("notif");
+    } else {
+        close_popup_btn_2.style.display = "none";
+        document.getElementById("notif_popup").style.display = "none";
+    }
+}
+
+function update_font_size() {
+    for(let i=0; i<document.getElementsByTagName("p").length; i++) {
+        document.getElementsByTagName("p")[i].style.fontSize = `${.03 * document.getElementById("body_not_body").clientHeight}px`;
+    }
+    for(let i=0; i<document.getElementsByTagName("h2").length; i++) {
+        document.getElementsByTagName("h2")[i].style.fontSize = `${.06 * document.getElementById("body_not_body").clientHeight}px`;
+    }
+    for(let i=0; i<document.getElementsByClassName("overlay").length; i++) {
+        document.getElementsByClassName("overlay")[i].style.fontSize = `${.05 * document.getElementById("body_not_body").clientHeight}px`;
+    }
+    for(let i=0; i<document.getElementsByClassName("popup_link").length; i++) {
+        document.getElementsByClassName("popup_link")[i].style.fontSize = `${.03 * document.getElementById("body_not_body").clientHeight}px`;
+    }
+    document.querySelector("#notif_popup p").style.fontSize = `${.09 * document.getElementById("body_not_body").clientHeight}px`;
+    document.getElementById("close_popup_btn_2").style.fontSize = `${.065 * document.getElementById("body_not_body").clientHeight}px`;
+    document.querySelector("#finished_popup h2").style.fontSize = `${.07 * document.getElementById("body_not_body").clientHeight}px`;
+}
+
 function show_popup(element_id) {
     document.getElementById(element_id + "_popup").style.display = "block";
     document.getElementById(element_id + "_popup").style.animation = "show_popup 1s";
 
     if(hint_arrow.style.display != "none" && hint_arrow.name.includes(element_id)) {
         hint_arrow.style.display = "none";
+    }
+
+    if(element_id == "finished") {
+        for(let i=0; i<document.querySelectorAll(".img_row img").length; i++) {
+            document.querySelectorAll(".img_row img")[i].style.animation = `dancing ${Math.random() * 1.5 + 2}s ease-in-out ${Math.random()}s infinite`;
+        }
     }
 
     setTimeout(() => {
@@ -95,6 +161,15 @@ function show_popup(element_id) {
     }, 1000);
 }
 
+function show_popup_2() {
+    document.getElementById("notif_popup").style.display = "block";
+    document.getElementById("notif_popup").style.animation = "show_popup 1s";
+
+    setTimeout(() => {
+        close_popup_btn_2.style.display = "block";
+    }, 1000);
+}
+
 function show_hint() {
     for(let i=3; i < image_elements.length; i++) {
         if(!image_elements[i].clicked) {
@@ -108,9 +183,7 @@ function show_hint() {
         }
     }
 
-    for(let i=0; i<document.getElementsByClassName("popup").length; i++) {
-        document.getElementsByClassName("popup")[i].style.display = "none";
-    }
+    document.getElementById("hints_cloud_popup").style.display = "none";
     close_popup_btn.style.display = "none";
 }
 
